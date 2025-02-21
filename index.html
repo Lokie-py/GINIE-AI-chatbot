@@ -3,17 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GPT :)</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>GINIE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    <div class="chat-container">
-        <h2>My GPT :)</h2>
-        <div id="chat-box"></div>
-        <input type="text" id="user-input" placeholder="Type a message..." />
-        <button onclick="sendMessage()">Send</button>
+    <div class="app-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1><i class="fas fa-brain"></i> <b>GINIE</b></h1>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="new-chat" id="newChat">
+                    <i class="fas fa-plus"></i> New Chat
+                </button>
+                <div class="chat-history" id="chatHistory">
+                    <!-- Chat history items will be added here -->
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="clearHistory" class="clear-history">
+                    <i class="fas fa-trash"></i> Clear History
+                </button>
+                <button id="toggleTheme" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="current-chat-info">
+                    <h2 id="chatTitle">New Conversation</h2>
+                    <span class="chat-timestamp" id="timestamp"></span>
+                </div>
+                <div class="header-actions">
+                    <button id="exportChat" title="Export Chat">
+                        <i class="fas fa-download"></i>
+                    </button>
+                    <button id="copyChat" title="Copy Chat">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="chat-container">
+                <div id="chatBox" class="chat-messages">
+                    <div class="welcome-screen" id="welcomeScreen">
+                        <div class="welcome-content">
+                            <h2>Welcome to GINIE</h2>
+                            <p>Your intelligent conversation partner</p>
+                            <div class="suggestion-chips">
+                                <button class="chip">Write a story</button>
+                                <button class="chip">Help with coding</button>
+                                <button class="chip">Explain a concept</button>
+                                <button class="chip">Analyze data</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <textarea 
+                            id="userInput" 
+                            placeholder="Type your message here... (Shift + Enter for new line)"
+                            rows="1"
+                        ></textarea>
+                        <div class="input-actions">
+                            <button id="attachFile" title="Attach File">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <button id="sendButton" disabled>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="input-footer">
+                        <span class="char-count">0/4000</span>
+                        <span class="input-tip">Press Enter to send</span>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Modals -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Processing your request...</p>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="script1.js"></script>
 </body>
 </html>
