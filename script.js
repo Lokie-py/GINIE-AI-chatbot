@@ -1,4 +1,4 @@
-const API_KEY = "AIzaSyAargp260rR9RrK9Fi9RZVP2CgiUfeei9Y"; // Replace with your actual Gemini API key
+const API_KEY = "AIzaSyAPni_sH1ZeP0u2gzq5MWS5CHiFcZYTgmU"; // Replace with your actual Gemini API key
 
 document.addEventListener("DOMContentLoaded", () => {
     const userInput = document.getElementById("userInput");
