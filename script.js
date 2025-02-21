@@ -1,4 +1,25 @@
-const API_KEY = "AIzaSyAPni_sH1ZeP0u2gzq5MWS5CHiFcZYTgmU"; // Replace with your actual Gemini API key
+let API_KEY = "";
+
+async function loadApiKey() {
+    try {
+        const response = await fetch("config.js");
+        if (response.ok) {
+            const scriptContent = await response.text();
+            const match = scriptContent.match(/API_KEY\s*=\s*"([^"]+)"/);
+            if (match) {
+                API_KEY = match[1];
+                console.log("🔐 API Key Loaded Securely!");
+            }
+        }
+    } catch (error) {
+        console.error("⚠️ Failed to load API key. Ensure config.js is present locally.");
+    }
+}
+
+// Call API Key Loader
+loadApiKey();
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const userInput = document.getElementById("userInput");
