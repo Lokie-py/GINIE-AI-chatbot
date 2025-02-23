@@ -1,4 +1,4 @@
-let API_KEY = "AIzaSyBf_5GnDuzgMYFILT-oVuugG7skz8VgHbo";
+let API_KEY = "";
 
 async function loadApiKey() {
     try {
